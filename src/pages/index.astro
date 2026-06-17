@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Apocalypse Circus"
+  description="Apocalypse Circus — Le dernier tour de piste de l'Amour. Un livre de CHAMILA."
+>
+  <main class="px-6 py-24 sm:py-32">
+    <div class="max-w-2xl mx-auto">
+
+      <!-- En-tête du livre -->
+      <header class="text-center mb-20">
+        <p class="text-xs tracking-widest uppercase mb-8" style="color: var(--muted);">CHAMILA</p>
+        <h1 class="text-5xl sm:text-6xl md:text-7xl mb-6 leading-tight">
+          Apocalypse<br />Circus
+        </h1>
+        <p class="text-xl sm:text-2xl italic" style="color: var(--muted);">
+          Le dernier tour de piste de l'Amour
+        </p>
+      </header>
+
+      <!-- Séparateur -->
+      <div class="flex items-center justify-center my-16">
+        <span class="text-2xl" style="color: var(--border);">◦ ◦ ◦</span>
+      </div>
+
+      <!-- Présentation placeholder -->
+      <section class="prose text-center mx-auto mb-16" style="max-width: 55ch;">
+        <p>
+          Il y a des spectacles qu'on n'oublie pas. Pas à cause des prouesses, ni de la beauté des costumes, ni même de la musique — mais à cause de ce qu'ils éveillent en nous : une vérité qu'on avait soigneusement enfouie sous les habitudes et les convenances.
+        </p>
+        <p>
+          <em>Apocalypse Circus</em> est ce genre de spectacle. C'est un livre sur l'Amour — pas l'amour romantique et lisse des cartes postales, mais l'Amour réel : celui qui dérange, qui renverse, qui laisse des traces dans la sciure. Celui qui nous force à nous regarder en face sous la lumière crue d'un projecteur qu'on n'a pas demandé.
+        </p>
+        <p>
+          CHAMILA nous invite dans un chapiteau imaginaire où chaque numéro — funambules, trapézistes, clowns, dompteurs — devient une métaphore d'une expérience amoureuse universelle et singulière à la fois. Au fil des onze sections, un portrait se dessine : celui d'un être humain qui apprend, perdition après perdition, que tomber n'est pas l'opposé de voler.
+        </p>
+        <p>
+          Ce texte est une porte. Ce qu'il y a derrière, c'est à vous de le traverser.
+        </p>
+        <p style="color: var(--muted); font-style: italic;">
+          — Texte de présentation placeholder (environ 200 mots)
+        </p>
+      </section>
+
+      <!-- Boutons d'action -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#" class="btn btn-primary">
+          Télécharger l'EPUB
+        </a>
+        <a href="/ouverture" class="btn btn-secondary">
+          Lire en ligne →
+        </a>
+      </div>
+
+      <!-- Pied de page discret -->
+      <footer class="mt-24 pt-8 text-center" style="border-top: 1px solid var(--border);">
+        <p class="text-sm" style="color: var(--muted);">
+          © CHAMILA —
+          <a href="https://chamila.org" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 opacity-80">
+            chamila.org
+          </a>
+        </p>
+      </footer>
+
+    </div>
+  </main>
+</BaseLayout>

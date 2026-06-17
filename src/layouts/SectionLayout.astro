@@ -1,0 +1,42 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SectionNav from '../components/SectionNav.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  sectionNumber: number;
+  prev: { id: string; title: string } | null;
+  next: { id: string; title: string } | null;
+}
+
+const { title, description, sectionNumber, prev, next } = Astro.props;
+const isOuverture = sectionNumber === 0;
+const label = isOuverture ? '' : `Section ${numberToRoman(sectionNumber)}`;
+
+function numberToRoman(n: number): string {
+  const map: [number, string][] = [
+    [10, 'X'], [9, 'IX'], [8, 'VIII'], [7, 'VII'], [6, 'VI'],
+    [5, 'V'],  [4, 'IV'], [3, 'III'],  [2, 'II'],  [1, 'I'],
+  ];
+  return map.reduce((acc, [val, sym]) => {
+    while (n >= val) { acc += sym; n -= val; }
+    return acc;
+  }, '');
+}
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="px-6 py-16 sm:py-24">
+    <article class="max-w-2xl mx-auto">
+      {label && (
+        <p class="text-xs tracking-widest uppercase mb-8" style="color: var(--muted);">{label}</p>
+      )}
+      <h1 class="text-3xl sm:text-4xl mb-12">{title}</h1>
+      <div class="prose">
+        <slot />
+      </div>
+      <SectionNav prev={prev} next={next} />
+    </article>
+  </main>
+</BaseLayout>

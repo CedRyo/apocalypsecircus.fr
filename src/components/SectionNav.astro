@@ -1,0 +1,45 @@
+---
+interface Props {
+  prev: { id: string; title: string } | null;
+  next: { id: string; title: string } | null;
+}
+
+const { prev, next } = Astro.props;
+---
+
+<nav
+  class="mt-20 pt-8 flex items-center justify-between gap-8 text-sm"
+  style="border-top: 1px solid var(--border);"
+  aria-label="Navigation entre sections"
+>
+  <div class="flex-1">
+    {prev && (
+      <a
+        href={`/${prev.id}`}
+        class="flex flex-col gap-1 opacity-60 hover:opacity-100 transition-opacity group"
+      >
+        <span class="tracking-widest uppercase text-xs">← Précédent</span>
+        <span class="font-medium group-hover:underline underline-offset-2">{prev.title}</span>
+      </a>
+    )}
+  </div>
+
+  <a
+    href="/"
+    class="opacity-40 hover:opacity-80 transition-opacity tracking-widest uppercase text-xs"
+  >
+    ◦
+  </a>
+
+  <div class="flex-1 text-right">
+    {next && (
+      <a
+        href={`/${next.id}`}
+        class="flex flex-col gap-1 items-end opacity-60 hover:opacity-100 transition-opacity group"
+      >
+        <span class="tracking-widest uppercase text-xs">Suivant →</span>
+        <span class="font-medium group-hover:underline underline-offset-2">{next.title}</span>
+      </a>
+    )}
+  </div>
+</nav>

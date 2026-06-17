@@ -1,0 +1,27 @@
+---
+import Sommaire from './Sommaire.astro';
+---
+
+<header
+  class="sticky top-0 z-40 px-6 py-4 flex items-center justify-between"
+  style="background-color: var(--bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(8px);"
+>
+  <a
+    href="/"
+    class="text-sm tracking-widest uppercase font-medium opacity-80 hover:opacity-100 transition-opacity"
+  >
+    Apocalypse Circus
+  </a>
+
+  <nav class="flex items-center gap-6">
+    <Sommaire />
+    <a
+      href="https://chamila.org"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-sm tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity"
+    >
+      CHAMILA ↗
+    </a>
+  </nav>
+</header>

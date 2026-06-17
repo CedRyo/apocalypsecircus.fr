@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="À propos"
+  description="À propos de CHAMILA, auteur d'Apocalypse Circus — Le dernier tour de piste de l'Amour."
+>
+  <main class="px-6 py-24">
+    <article class="max-w-2xl mx-auto">
+      <p class="text-xs tracking-widest uppercase mb-8" style="color: var(--muted);">À propos</p>
+      <h1 class="text-3xl sm:text-4xl mb-12">CHAMILA</h1>
+
+      <div class="prose mb-16">
+        <p>
+          CHAMILA est un auteur dont l'œuvre explore les territoires intérieurs de l'amour, de la perte et de la transformation. Avec une écriture à la fois intime et universelle, il construit des espaces narratifs où le lecteur peut se reconnaître sans jamais s'y perdre.
+        </p>
+        <p>
+          <em>Apocalypse Circus</em> est son premier livre publié en ligne, conçu pour être lu à la fois comme un objet littéraire et comme une expérience contemplative.
+        </p>
+        <p style="color: var(--muted); font-style: italic;">
+          — Texte de présentation placeholder. Le contenu définitif sera ajouté ultérieurement.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4" style="border-top: 1px solid var(--border); padding-top: 2rem;">
+        <a
+          href="https://chamila.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm tracking-wide opacity-80 hover:opacity-100 transition-opacity"
+        >
+          → chamila.org
+        </a>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity"
+        >
+          ← Retour à l'accueil
+        </a>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
