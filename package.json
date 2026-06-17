@@ -2,6 +2,9 @@
   "name": "apocalypsecircus-fr",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
