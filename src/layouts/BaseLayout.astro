@@ -6,11 +6,31 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  // Highwire Press / Google Scholar
+  citationTitle?: string;
+  citationAuthor?: string;
+  citationPublicationDate?: string;
+  citationJournalTitle?: string;
+  citationPublicUrl?: string;
+  citationPdfUrl?: string;
+  citationLanguage?: string;
 }
 
-const { title, description, ogImage = '/cover.svg' } = Astro.props;
-const siteName = 'Apocalypse Circus';
-const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
+const {
+  title,
+  description,
+  ogImage = '/cover.svg',
+  citationTitle,
+  citationAuthor,
+  citationPublicationDate,
+  citationJournalTitle,
+  citationPublicUrl,
+  citationPdfUrl,
+  citationLanguage,
+} = Astro.props;
+
+const siteName   = 'Apocalypse Circus';
+const fullTitle  = title === siteName ? title : `${title} — ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, 'https://apocalypsecircus.fr');
 ---
 
@@ -24,19 +44,28 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://apocalypsecircus.fr');
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title"       content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={`https://apocalypsecircus.fr${ogImage}`} />
-    <meta property="og:site_name" content={siteName} />
-    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonicalURL} />
+    <meta property="og:image"       content={`https://apocalypsecircus.fr${ogImage}`} />
+    <meta property="og:site_name"   content={siteName} />
+    <meta property="og:locale"      content="fr_FR" />
 
     <!-- Twitter / X Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`https://apocalypsecircus.fr${ogImage}`} />
+    <meta name="twitter:image"       content={`https://apocalypsecircus.fr${ogImage}`} />
+
+    <!-- Highwire Press / Google Scholar -->
+    {citationTitle             && <meta name="citation_title"            content={citationTitle} />}
+    {citationAuthor            && <meta name="citation_author"           content={citationAuthor} />}
+    {citationPublicationDate   && <meta name="citation_publication_date" content={citationPublicationDate} />}
+    {citationJournalTitle      && <meta name="citation_journal_title"    content={citationJournalTitle} />}
+    {citationPublicUrl         && <meta name="citation_public_url"       content={citationPublicUrl} />}
+    {citationPdfUrl            && <meta name="citation_pdf_url"          content={citationPdfUrl} />}
+    {citationLanguage          && <meta name="citation_language"         content={citationLanguage} />}
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

@@ -8,25 +8,57 @@ interface Props {
   sectionNumber: number;
   prev: { id: string; title: string } | null;
   next: { id: string; title: string } | null;
+  citationTitle?: string;
+  citationAuthor?: string;
+  citationPublicationDate?: string;
+  citationJournalTitle?: string;
+  citationPublicUrl?: string;
+  citationPdfUrl?: string;
+  citationLanguage?: string;
 }
 
-const { title, description, sectionNumber, prev, next } = Astro.props;
+const {
+  title,
+  description,
+  sectionNumber,
+  prev,
+  next,
+  citationTitle,
+  citationAuthor,
+  citationPublicationDate,
+  citationJournalTitle,
+  citationPublicUrl,
+  citationPdfUrl,
+  citationLanguage,
+} = Astro.props;
+
 const isOuverture = sectionNumber === 0;
 const label = isOuverture ? '' : `Section ${numberToRoman(sectionNumber)}`;
 
 function numberToRoman(n: number): string {
   const map: [number, string][] = [
-    [10, 'X'], [9, 'IX'], [8, 'VIII'], [7, 'VII'], [6, 'VI'],
-    [5, 'V'],  [4, 'IV'], [3, 'III'],  [2, 'II'],  [1, 'I'],
+    [11, 'XI'], [10, 'X'], [9, 'IX'], [8, 'VIII'], [7, 'VII'], [6, 'VI'],
+    [5, 'V'],   [4, 'IV'], [3, 'III'], [2, 'II'],  [1, 'I'],
   ];
-  return map.reduce((acc, [val, sym]) => {
-    while (n >= val) { acc += sym; n -= val; }
-    return acc;
-  }, '');
+  let result = '';
+  for (const [val, sym] of map) {
+    while (n >= val) { result += sym; n -= val; }
+  }
+  return result;
 }
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  citationTitle={citationTitle}
+  citationAuthor={citationAuthor}
+  citationPublicationDate={citationPublicationDate}
+  citationJournalTitle={citationJournalTitle}
+  citationPublicUrl={citationPublicUrl}
+  citationPdfUrl={citationPdfUrl}
+  citationLanguage={citationLanguage}
+>
   <main class="px-6 py-16 sm:py-24">
     <article class="max-w-2xl mx-auto">
       {label && (

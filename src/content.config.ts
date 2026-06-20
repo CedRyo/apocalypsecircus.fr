@@ -8,6 +8,14 @@ const sections = defineCollection({
     sectionNumber: z.number(),
     description: z.string(),
     slug: z.string(),
+    // Highwire Press metadata for Google Scholar
+    citationTitle: z.string().optional(),
+    citationAuthor: z.string().optional(),
+    citationPublicationDate: z.string().optional(),
+    citationJournalTitle: z.string().optional(),
+    citationPublicUrl: z.string().optional(),
+    citationPdfUrl: z.string().optional(),
+    citationLanguage: z.string().optional(),
   }),
 });
 

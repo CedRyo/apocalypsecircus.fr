@@ -80,6 +80,23 @@
   }
 }
 
+/* Intertitre (song / chapter epigraph) */
+.prose p.intertitre {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  margin: 2em 0;
+}
+
+/* Bibliography list */
+.prose ul {
+  padding-left: 1.5em;
+  margin: 1.5em 0;
+}
+.prose li {
+  margin-bottom: 0.5em;
+}
+
 /* Prose content for sections */
 .prose {
   max-width: 65ch;
